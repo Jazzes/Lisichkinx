@@ -6,10 +6,11 @@ alwaysApply: true
 # Lisichkinx Architecture
 
 - Репозиторий — npm workspaces monorepo: `apps/web` сейчас, `apps/api` позже.
-- Основной frontend живет в `apps/web/src` и следует Feature-Sliced Design.
+- Основной frontend живет в `apps/web` и следует Feature-Sliced Design.
 - Направление зависимостей: `shared` ← `entities` ← `features` ← `widgets` ← `views` ← `app`.
-- `src/app` содержит только Next.js routing, layout, metadata и route-level glue.
+- `apps/web/app` содержит только Next.js routing, layout, metadata и route-level glue.
 - Композиция пользовательских страниц живет в `views`; крупные блоки — в `widgets`.
 - Между слайсами импортируй через public API `index.ts`, не через глубокие внутренние пути.
 - Не клади бизнес-логику в `shared`, если она относится к конкретной сущности или фиче.
+- Переводы хранятся в JSON-неймспейсах: `apps/web/lang/ru/*.json` и `apps/web/lang/en/*.json`.
 - Backend пока не реализован: не добавляй API-приложение без отдельной задачи.

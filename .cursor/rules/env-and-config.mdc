@@ -1,0 +1,25 @@
+---
+description: Правила окружений, переменных среды и конфигурации apps/web.
+globs: apps/web/**/*.{ts,tsx,mjs},*.config.*,**/.env*
+alwaysApply: false
+---
+
+# Env And Config
+
+- Не хардкодь URL, ключи API, домены окружений и секреты в коде.
+- Не коммить `.env`, credentials, tokens и приватные ключи.
+- Если добавляешь новую переменную окружения, обнови шаблоны и документацию, если они есть.
+- Отделяй public env (`NEXT_PUBLIC_*`) от серверных значений.
+
+## Config files
+
+- `apps/web/next.config.ts` меняй только при понятном влиянии на build/runtime.
+- `apps/web/proxy.ts` меняй осторожно: он влияет на i18n routes и redirects.
+- Изменения в `eslint.config.mjs`, `stylelint.config.mjs`, `dependency-cruiser.config.cjs`, `tsconfig*.json` требуют отдельной верификации.
+
+## Verification
+
+- Config/routing/proxy changes → оцени `npm run build`.
+- Dependency/FSD boundaries → `npm run deps-cruise`.
+- Lint/style config → `npm run lint` / `npm run stylelint`.
+- TypeScript config → `npm run type-check`.

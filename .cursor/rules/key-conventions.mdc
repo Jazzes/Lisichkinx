@@ -1,0 +1,28 @@
+---
+description: Централизованные конвенции для route, i18n и project keys.
+alwaysApply: true
+---
+
+# Key Conventions
+
+- Не вводи переиспользуемые ключи и пути как inline-строки, если для них уже есть общее место.
+- Перед добавлением нового литерала проверь существующие config, types, constants и helpers.
+- Называй ключи по устойчивому доменному смыслу, а не по временным деталям UI.
+
+## Routes
+
+- i18n-конфиг и локализованные пути живут в `apps/web/shared/config/i18n.ts` и `apps/web/shared/lib/i18n`.
+- Для построения ссылок используй `buildLocalizedPath`, а не ручную сборку строк.
+- Контракт маршрутов: RU без префикса (`/`, `/calculator`), EN с префиксом (`/en`, `/en/calculator`).
+- Не хардкодь route-пути в компонентах, если путь уже выражен через config/helper.
+
+## i18n keys
+
+- Переводы хранятся в JSON-неймспейсах `apps/web/lang/ru/*.json` и `apps/web/lang/en/*.json`.
+- Новые user-facing строки добавляй в оба языка.
+- Переиспользуй существующий namespace, если он подходит по доменному смыслу.
+
+## Constants and Types
+
+- Enum-подобные значения, статусы и публичные контракты держи в типах/config, а не в локальных строках.
+- Не дублируй `Locale`, route/path/domain types локально.

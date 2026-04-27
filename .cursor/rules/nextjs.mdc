@@ -1,0 +1,32 @@
+---
+description: Конвенции Next.js App Router и React 19 для apps/web.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Next.js And React
+
+- Проект использует Next.js App Router, React 19 и TypeScript 5.
+- `apps/web/app` — только routing, layout, metadata и route-level glue.
+- Композиция пользовательских страниц живёт в `views`, крупные блоки — в `widgets`.
+
+## Server / Client boundary
+
+- По умолчанию используй Server Components.
+- Добавляй `'use client'` только для state, effects, event handlers, browser API или client-only hooks.
+- Не поднимай `'use client'` выше минимального интерактивного блока.
+- Не используй `window`, `document`, `localStorage` и browser-only API в серверном коде.
+- Серверные компоненты могут быть `async`, но не должны тащить client-only зависимости.
+
+## Routing, layout and proxy
+
+- Маршруты проходят через `app/[locale]/...`.
+- i18n redirect/rewrite логика находится в `apps/web/proxy.ts`; не дублируй её в layout/page.
+- Глобальные провайдеры добавляй только при явной необходимости.
+- Metadata держи на route-level и не смешивай с view-композицией.
+
+## React 19
+
+- Не размазывай derived state через лишние `useEffect` + `useState`, если можно вычислить напрямую.
+- `memo`, `useMemo`, `useCallback` применяй точечно, после понимания источника ререндера.
+- Предпочитай guard clauses и плоский control flow.

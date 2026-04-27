@@ -1,0 +1,47 @@
+---
+description: Каталог Cursor rules проекта Lisichkinx и правила его обновления.
+alwaysApply: false
+---
+
+# Rules Documentation
+
+- При любом изменении набора `.cursor/rules/*.mdc` обновляй этот каталог.
+- Обновление нужно при добавлении, удалении, переименовании rule или изменении его scope/frontmatter.
+
+## Always-on
+
+| Файл                            | Назначение                                                     |
+| ------------------------------- | -------------------------------------------------------------- |
+| `project-architecture.mdc`      | Архитектура monorepo, FSD boundaries, направления зависимостей |
+| `common-rules.mdc`              | Безопасные изменения, типизация, комментарии, приоритеты       |
+| `agent-workflow.mdc`            | Workflow агента, Plan Mode, контроль scope                     |
+| `plan-mode-clarification.mdc`   | Уточняющие вопросы перед комплексным планом                    |
+| `key-conventions.mdc`           | Route, i18n и project keys                                     |
+| `change-impact-analysis.mdc`    | Blast radius и regression-риски                                |
+| `verification.mdc`              | Матрица проверок после изменений                               |
+| `pre-commit-verification.mdc`   | Hard gate перед commit/PR/готово                               |
+| `git-and-commits.mdc`           | Git-безопасность, ветки и коммиты                              |
+| `image-unoptimized-default.mdc` | Политика `next/image` с `unoptimized` по умолчанию             |
+
+## Contextual
+
+| Файл                      | Назначение                                   | Trigger                                             |
+| ------------------------- | -------------------------------------------- | --------------------------------------------------- |
+| `frontend-code-style.mdc` | TypeScript, React и Next.js стиль кода       | `apps/web/**/*.{ts,tsx}`                            |
+| `styles.mdc`              | Tailwind v4, SCSS Modules и Base UI          | `apps/web/**/*.{ts,tsx,css,scss}`                   |
+| `naming.mdc`              | Именование файлов, компонентов и сущностей   | `apps/web/**/*.{ts,tsx}`                            |
+| `nextjs.mdc`              | App Router, React 19, Server/Client boundary | `apps/web/**/*.{ts,tsx}`                            |
+| `i18n.mdc`                | `next-intl`, локали и localized paths        | `apps/web/**/*.{ts,tsx}`                            |
+| `error-handling.mdc`      | Guard clauses и error flow                   | `apps/web/**/*.{ts,tsx}`                            |
+| `testing.mdc`             | Vitest, Playwright и Storybook               | `apps/web/**/*.{ts,tsx}`                            |
+| `env-and-config.mdc`      | Env, config, `next.config.ts`, `proxy.ts`    | `apps/web/**/*.{ts,tsx,mjs}`, `*.config.*`, `.env*` |
+| `web-performance.mdc`     | Производительность frontend-кода             | `apps/web/**/*.{ts,tsx}`                            |
+| `design-qa.mdc`           | Дизайн-QA, состояния UI, accessibility       | `apps/web/**/*.{tsx,module.scss}`                   |
+
+## Manual
+
+| Файл                      | Назначение                                   |
+| ------------------------- | -------------------------------------------- |
+| `pr-review.mdc`           | Строгий PR review и self-review перед commit |
+| `rule-creation.mdc`       | Конвенции создания и изменения rules         |
+| `rules-documentation.mdc` | Каталог rules и правила его поддержки        |

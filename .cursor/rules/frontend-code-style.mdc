@@ -13,4 +13,5 @@ alwaysApply: false
 - Default export допустим только для Next.js route files: `page.tsx`, `layout.tsx`, `error.tsx`, `loading.tsx`.
 - По умолчанию используй Server Components. `'use client'` добавляй только для state, effects или browser API.
 - Публичные props, helpers и domain contracts типизируй явно. Не используй `any` и `as any`.
-- Видимый текст держи в i18n messages, не размазывай строки по UI.
+- Всегда переиспользуй существующие проектные типы (`Locale`, route/path/domain types), не заменяй их на `string` или локальные дубликаты.
+- Видимый текст держи в `apps/web/lang/{locale}/*.json`, не размазывай строки по UI.

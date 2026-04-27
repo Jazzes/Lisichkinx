@@ -1,0 +1,28 @@
+---
+description: Анализ blast radius и regression-рисков перед сдачей изменений.
+alwaysApply: true
+---
+
+# Change Impact Analysis
+
+- Перед тем как назвать задачу готовой, построй карту влияния изменения, а не ограничивайся diff.
+- Начинай от изменённых файлов и перечисляй пользовательские сценарии, контракты и side-effects, которые они могут задеть.
+- Если изменение правит симптом, проверь соседнюю логику и опиши возможную первопричину.
+
+## Что учитывать
+
+- FSD boundaries и направление зависимостей `shared` ← `entities` ← `features` ← `widgets` ← `views` ← `app`.
+- SSR/CSR поведение, hydration mismatch, Server/Client boundary и место `'use client'`.
+- i18n маршруты, `proxy.ts`, локали RU/EN, redirects и metadata.
+- Loading, error, empty, disabled, focus/keyboard и адаптивные состояния UI.
+- Кэширование Next.js, route-level data flow и build/runtime конфиги.
+- Shared helpers, public API `index.ts`, типы и dependency-cruiser contract.
+
+## Обязательный выход анализа
+
+- `Что изменено` — какая поверхность реально поменялась.
+- `Что могло сломаться` — смежные флоу, состояния, config и интеграции.
+- `Почему это в зоне риска` — контракт, side-effect, state transition, cache или SSR/CSR.
+- `Что проверить вручную` — конкретные пользовательские шаги.
+
+Не пиши «остальное не должно сломаться» без объяснения, почему blast radius ограничен.

@@ -1,0 +1,32 @@
+---
+description: Правила именования файлов, компонентов и сущностей в apps/web.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Naming
+
+## Файлы и директории
+
+- React-компонент: `PascalCase.tsx` рядом со стилями и тестами.
+- SCSS Module: `PascalCase.module.scss` рядом с компонентом.
+- Hook: `useCamelCase.ts` или `useCamelCase.tsx`.
+- Helper/utility: `camelCase.ts`.
+- Тест: `*.test.ts` / `*.test.tsx`.
+- Storybook: `*.stories.tsx`.
+- Public API сегмента: `index.ts`.
+
+## Внутри файлов
+
+- Компоненты — `PascalCase`, named exports.
+- Props-типы — `ComponentNameProps`.
+- Хуки — `useCamelCase`.
+- Типы и интерфейсы — `PascalCase`.
+- Глобальные константы — `UPPER_SNAKE_CASE`; локальные — `camelCase`.
+- Импорт CSS Modules называй `s`, не `styles`.
+
+## FSD public API
+
+- Между слайсами импортируй через `index.ts`.
+- Не импортируй внутренности чужого слайса по глубокому пути.
+- При добавлении нового файла следуй паттернам соседнего сегмента.

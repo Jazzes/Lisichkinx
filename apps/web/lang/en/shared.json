@@ -1,0 +1,19 @@
+{
+  "site": {
+    "title": "Lisichkinx",
+    "description": "A catalog of useful digital projects and tools."
+  },
+  "home": {
+    "eyebrow": "Lisichkinx",
+    "heroTitle": "Lisichkinx",
+    "heroDescription": "A personal catalog of useful digital projects and tools.",
+    "projectsTitle": "Projects"
+  },
+  "projects": {
+    "creditCalculator": {
+      "title": "Credit calculator",
+      "description": "The first project tool: payment and credit scenario calculations.",
+      "cta": "Open calculator"
+    }
+  }
+}

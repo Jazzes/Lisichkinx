@@ -1,0 +1,34 @@
+---
+description: Дизайн-QA для UI-изменений в apps/web.
+globs: apps/web/**/*.{tsx,module.scss}
+alwaysApply: false
+---
+
+# Design QA
+
+- Если задача опирается на Figma, скриншот или требование «как в макете», проверяй визуальное и поведенческое соответствие.
+- Не ограничивайся «похоже»: сверяй отступы, размеры, иерархию, типографику, цвета и состояния.
+- Для UI-элементов сначала ищи wrapper в `apps/web/shared/ui`.
+- Base UI primitives подключай через wrappers в `shared/ui`, не напрямую в feature/view/widget.
+
+## Обязательные состояния
+
+- default
+- hover / focus / active
+- loading / pending
+- empty
+- error
+- disabled
+- mobile и desktop, если компонент адаптивный
+
+## Доступность
+
+- Интерактивные элементы должны иметь корректную семантику, keyboard behavior и focus state.
+- Видимые подписи, aria-labels и сообщения об ошибках должны быть переведены.
+- Tap targets на мобильных должны оставаться кликабельными.
+
+## Стили
+
+- Tailwind v4 используй для layout, spacing, flex/grid, typography и быстрых состояний.
+- `*.module.scss` используй для сложных селекторов, псевдоэлементов, анимаций и длинной styling-логики.
+- Дизайн-токены и CSS variables держи в `apps/web/shared/styles`.

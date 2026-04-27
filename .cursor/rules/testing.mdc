@@ -1,0 +1,38 @@
+---
+description: Стратегия тестирования для Vitest, Playwright и Storybook.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Testing
+
+- Тест должен подтверждать рискованное поведение, которое менялось в задаче.
+- Для багфикса сначала зафиксируй симптом regression-тестом, если это разумно изолируется.
+- Для pure helper, parser, mapper и сложной ветки TypeScript добавляй unit-тест.
+- Для UI проверяй пользовательское поведение, а не внутреннюю реализацию.
+
+## Стек
+
+- Unit/component tests: Vitest + Testing Library.
+- E2E: Playwright в `apps/web/e2e`.
+- Stories: Storybook `*.stories.tsx` для переиспользуемых UI-компонентов.
+
+## Размещение
+
+- Unit-тесты держи рядом с тестируемым кодом: `*.test.ts` / `*.test.tsx`.
+- E2E-тесты — в `apps/web/e2e`.
+- Test setup — `apps/web/test/setup.ts`.
+
+## Когда тест обязателен
+
+- Меняется ветвление, guard-логика, derived state или i18n route contract.
+- Добавляется новый helper/util с несколькими входными сценариями.
+- Меняется shared public API или FSD contract.
+- Есть риск повторной регрессии.
+
+## Проверки
+
+- Точечный тест: `npm test -- --run <path>`.
+- Все unit/component tests: `npm run test`.
+- E2E: `npm run test:e2e`.
+- Если менялись типы, дополнительно `npm run type-check`.

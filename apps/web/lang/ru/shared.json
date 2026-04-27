@@ -1,0 +1,19 @@
+{
+  "site": {
+    "title": "Lisichkinx",
+    "description": "Каталог полезных цифровых проектов и инструментов."
+  },
+  "home": {
+    "eyebrow": "Lisichkinx",
+    "heroTitle": "Lisichkinx",
+    "heroDescription": "Личный каталог полезных цифровых проектов и инструментов.",
+    "projectsTitle": "Проекты"
+  },
+  "projects": {
+    "creditCalculator": {
+      "title": "Кредитный калькулятор",
+      "description": "Первый инструмент проекта: расчет платежей и сценариев по кредиту.",
+      "cta": "Открыть калькулятор"
+    }
+  }
+}

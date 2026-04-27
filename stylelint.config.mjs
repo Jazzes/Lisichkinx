@@ -1,5 +1,12 @@
 const config = {
   extends: ['stylelint-config-standard-scss', 'stylelint-config-css-modules'],
+  ignoreFiles: [
+    '**/coverage/**',
+    '**/node_modules/**',
+    '**/playwright-report/**',
+    '**/storybook-static/**',
+    '**/test-results/**',
+  ],
   overrides: [
     {
       files: ['**/*.css'],

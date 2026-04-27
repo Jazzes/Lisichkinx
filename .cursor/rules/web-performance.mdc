@@ -1,0 +1,29 @@
+---
+description: Правила производительности frontend-кода apps/web.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Web Performance
+
+- Сначала устраняй причину лишних ререндеров и тяжёлых вычислений, а не маскируй её `memo`.
+- Любая правка в списках, layout, navigation, i18n routing и route-level composition считается performance-sensitive.
+
+## Render path
+
+- Не создавай новые объекты, массивы и функции в горячем render-path, если они уходят в memoized children.
+- Не храни derived state через `useEffect` + `useState`, если значение можно вычислить напрямую.
+- `useMemo`, `useCallback` и `memo` применяй точечно, после понимания источника ререндера.
+- Не переносы весь view в client component ради одного интерактивного элемента.
+
+## Loading and bundles
+
+- Для тяжёлых client-only компонентов используй `next/dynamic`.
+- Не импортируй тяжёлую библиотеку синхронно, если она нужна только после взаимодействия.
+- Следи, чтобы shared helper не тянул client-only зависимости в server code.
+
+## Images and layout
+
+- Для `<Image />` по умолчанию используй `unoptimized`.
+- Для below-the-fold изображений учитывай lazy loading.
+- Проверяй CLS при изменениях размеров, шрифтов и responsive layout.

@@ -1,0 +1,40 @@
+---
+description: Конвенции создания и изменения Cursor rules в Lisichkinx.
+alwaysApply: false
+---
+
+# Rule Creation
+
+- Создавай правила в `.cursor/rules/*.mdc`.
+- Каждый rule должен иметь YAML frontmatter: `description` и `alwaysApply`.
+- Для contextual rules обязательно добавляй `globs`.
+- Держи правило коротким, конкретным и с одной зоной ответственности.
+- Не дублируй один и тот же чеклист в нескольких rules; оставь один источник истины.
+- При изменении набора rules обновляй `rules-documentation.mdc`.
+
+## Frontmatter
+
+Always-on правило:
+
+```yaml
+---
+description: Короткое назначение правила
+alwaysApply: true
+---
+```
+
+Contextual правило:
+
+```yaml
+---
+description: Короткое назначение правила
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+```
+
+## Как выбирать scope
+
+- `alwaysApply: true` — только для коротких правил, полезных всему монорепо: workflow, git, architecture, verification.
+- `alwaysApply: false` + `globs` — для frontend/backend/tooling-специфичных правил.
+- `alwaysApply: false` без `globs` — для manual rules, которые включаются по описанию: review, rule creation, docs.

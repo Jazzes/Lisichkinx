@@ -1,0 +1,31 @@
+---
+description: Правила интернационализации для next-intl и локализованных routes.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# i18n
+
+- Проект использует `next-intl` и route segment `app/[locale]`.
+- Поддерживаемые локали: `ru` и `en`.
+- Контракт URL: RU без префикса (`/`, `/calculator`), EN с префиксом (`/en`, `/en/calculator`).
+- Конфиг локалей держи в `apps/web/shared/config/i18n.ts`.
+
+## Переводы
+
+- Переводы хранятся в JSON-неймспейсах `apps/web/lang/ru/*.json` и `apps/web/lang/en/*.json`.
+- Любую user-facing строку добавляй в оба языка.
+- Не хардкодь видимый текст в UI, metadata, labels, aria-labels и ошибках.
+- Ключи называй по доменному смыслу, а не по расположению на экране.
+
+## Server / Client
+
+- В server components используй `getTranslations` / server API `next-intl`.
+- В client components используй `useTranslations`.
+- Не смешивай server/client i18n API в одном компоненте.
+
+## Links and paths
+
+- Для построения локализованных ссылок используй `buildLocalizedPath`.
+- Не собирай `/${locale}/...` вручную: default locale скрывается из URL.
+- При добавлении новой страницы проверь RU и EN варианты маршрута.

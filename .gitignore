@@ -14,6 +14,9 @@ dist/
 # tests and reports
 coverage/
 reports/
+playwright-report/
+storybook-static/
+test-results/
 
 # env
 .env
@@ -34,5 +37,6 @@ Thumbs.db
 # editor
 .idea/
 .vscode/*
+!.vscode/css-custom-data.json
 !.vscode/extensions.json
 !.vscode/settings.json

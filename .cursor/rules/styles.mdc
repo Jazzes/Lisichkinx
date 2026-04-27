@@ -10,6 +10,6 @@ alwaysApply: false
 - `*.module.scss` используй для сложных селекторов, псевдоэлементов, анимаций и длинной styling-логики.
 - Не смешивай Tailwind и SCSS Modules хаотично в одном компоненте: выбери основной инструмент для блока.
 - Импорт CSS Modules называй `s`.
-- Дизайн-токены и глобальные CSS variables держи в `src/shared/styles`.
-- Base UI primitives подключай только через обертки в `src/shared/ui`, не напрямую в feature/view/widget.
-- Для className используй `cn()` из `src/shared/lib/cn.ts`.
+- Дизайн-токены и глобальные CSS variables держи в `apps/web/shared/styles`.
+- Base UI primitives подключай только через обертки в `apps/web/shared/ui`, не напрямую в feature/view/widget.
+- Для className используй `cn()` из `apps/web/shared/lib/cn.ts`.

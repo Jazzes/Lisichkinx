@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@source '../../app/**/*.{ts,tsx}';
+@source '../../shared/**/*.{ts,tsx}';
+@source '../../views/**/*.{ts,tsx}';
+@source '../../widgets/**/*.{ts,tsx}';
+
+@theme {
+  --color-background: #f7f7f5;
+  --color-foreground: #111;
+  --color-surface: #fff;
+  --color-surface-muted: #efefec;
+  --color-border-subtle: #d6d6cf;
+  --color-muted: #66665f;
+  --color-accent: #111;
+  --color-accent-hover: #2a2a2a;
+  --color-accent-foreground: #fff;
+  --font-sans: arial, helvetica, sans-serif;
+  --radius-card: 1.5rem;
+  --radius-control: 9999px;
+  --shadow-card: 0 1px 2px rgb(17 17 17 / 6%), 0 10px 30px rgb(17 17 17 / 5%);
+  --container-page: 64rem;
+}

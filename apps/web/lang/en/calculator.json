@@ -1,0 +1,8 @@
+{
+  "page": {
+    "eyebrow": "Lisichkinx tool",
+    "title": "Credit calculator",
+    "description": "Monthly payments, overpayment and early repayment scenarios will be calculated here.",
+    "status": "The route and architecture base are ready. Business logic will come next."
+  }
+}

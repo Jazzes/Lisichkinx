@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": ["apps/web/src/*"]
+      "@/*": ["apps/web/*"]
     },
     "target": "ES2017"
   },

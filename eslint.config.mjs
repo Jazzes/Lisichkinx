@@ -23,6 +23,9 @@ const config = [
       '**/build/**',
       '**/dist/**',
       '**/coverage/**',
+      '**/playwright-report/**',
+      '**/storybook-static/**',
+      '**/test-results/**',
       '**/.git/**',
       'apps/web/next-env.d.ts',
     ],
@@ -90,7 +93,7 @@ const config = [
       'better-tailwindcss/enforce-canonical-classes': [
         'warn',
         {
-          entryPoint: 'apps/web/src/shared/styles/tailwind.css',
+          entryPoint: 'apps/web/shared/styles/tailwind.css',
         },
       ],
       'import/first': 'error',
@@ -191,7 +194,12 @@ const config = [
     },
   },
   {
-    files: ['*.config.{js,mjs,cjs,ts}', '**/*.config.{js,mjs,cjs,ts}', 'apps/web/proxy.ts'],
+    files: [
+      '*.config.{js,mjs,cjs,ts}',
+      '**/*.config.{js,mjs,cjs,ts}',
+      'apps/web/.storybook/**/*.{ts,tsx}',
+      'apps/web/proxy.ts',
+    ],
     languageOptions: {
       parserOptions: {
         projectService: false,
