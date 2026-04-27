@@ -22,8 +22,9 @@ const LocalizedHomePage = async ({ params }: LocalizedHomePageProps) => {
 
   setRequestLocale(locale);
 
-  const [home, creditCalculator] = await Promise.all([
+  const [home, fontShowcase, creditCalculator] = await Promise.all([
     getTranslations({ locale, namespace: 'shared.home' }),
+    getTranslations({ locale, namespace: 'shared.home.fontShowcase' }),
     getTranslations({ locale, namespace: 'shared.projects.creditCalculator' }),
   ]);
 
@@ -32,6 +33,19 @@ const LocalizedHomePage = async ({ params }: LocalizedHomePageProps) => {
       locale={locale}
       messages={{
         eyebrow: home('eyebrow'),
+        fontShowcase: {
+          accentSample: fontShowcase('accentSample'),
+          accentTitle: fontShowcase('accentTitle'),
+          bodySample: fontShowcase('bodySample'),
+          bodyTitle: fontShowcase('bodyTitle'),
+          description: fontShowcase('description'),
+          eyebrow: fontShowcase('eyebrow'),
+          reasons: {
+            commissioner: fontShowcase('reasons.commissioner'),
+            onest: fontShowcase('reasons.onest'),
+          },
+          title: fontShowcase('title'),
+        },
         heroDescription: home('heroDescription'),
         heroTitle: home('heroTitle'),
         projectList: {

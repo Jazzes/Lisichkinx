@@ -1,3 +1,5 @@
+@layer reset, theme, base, components, utilities;
+
 @import 'tailwindcss';
 
 @source '../../app/**/*.{ts,tsx}';
@@ -15,7 +17,38 @@
   --color-accent: #111;
   --color-accent-hover: #2a2a2a;
   --color-accent-foreground: #fff;
-  --font-sans: arial, helvetica, sans-serif;
+  --font-sans: var(--font-onest), arial, helvetica, sans-serif;
+  --font-accent: var(--font-commissioner), var(--font-sans);
+  --text-xs: 0.625rem;
+  --text-xs--line-height: 1rem;
+  --text-s: 0.75rem;
+  --text-s--line-height: 1rem;
+  --text-m: 0.875rem;
+  --text-m--line-height: 1.25rem;
+  --text-l: 1rem;
+  --text-l--line-height: 1.5rem;
+  --text-xl: 1.125rem;
+  --text-xl--line-height: 1.75rem;
+  --text-accent-s: 1.25rem;
+  --text-accent-s--font-weight: 600;
+  --text-accent-s--letter-spacing: -0.02em;
+  --text-accent-s--line-height: 1.75rem;
+  --text-accent-m: 1.5rem;
+  --text-accent-m--font-weight: 600;
+  --text-accent-m--letter-spacing: -0.025em;
+  --text-accent-m--line-height: 2rem;
+  --text-accent-l: 2rem;
+  --text-accent-l--font-weight: 600;
+  --text-accent-l--letter-spacing: -0.035em;
+  --text-accent-l--line-height: 2.25rem;
+  --text-accent-xl: 3rem;
+  --text-accent-xl--font-weight: 600;
+  --text-accent-xl--letter-spacing: -0.045em;
+  --text-accent-xl--line-height: 1;
+  --text-accent-2xl: 3.75rem;
+  --text-accent-2xl--font-weight: 600;
+  --text-accent-2xl--letter-spacing: -0.05em;
+  --text-accent-2xl--line-height: 1;
   --radius-card: 1.5rem;
   --radius-control: 9999px;
   --shadow-card: 0 1px 2px rgb(17 17 17 / 6%), 0 10px 30px rgb(17 17 17 / 5%);

@@ -7,7 +7,20 @@
     "eyebrow": "Lisichkinx",
     "heroTitle": "Lisichkinx",
     "heroDescription": "A personal catalog of useful digital projects and tools.",
-    "projectsTitle": "Projects"
+    "projectsTitle": "Projects",
+    "fontShowcase": {
+      "eyebrow": "Typography",
+      "title": "Fonts worth trying instead of Arial",
+      "description": "Onest stays for body copy, and Commissioner now handles headlines and accents. The previews below use the actual font, size, and weight design tokens.",
+      "bodyTitle": "For body typography",
+      "accentTitle": "For headlines and accents",
+      "bodySample": "Съешь ещё этих мягких французских булок, да выпей чаю.",
+      "accentSample": "Large expressive headline",
+      "reasons": {
+        "onest": "A soft modern sans: it reads naturally in Cyrillic and feels less overused than default system fonts.",
+        "commissioner": "A confident accent family: strong in headlines, cards, and short promotional blocks."
+      }
+    }
   },
   "projects": {
     "creditCalculator": {

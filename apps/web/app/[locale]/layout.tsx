@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server';
 
+import { Commissioner, Onest } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import { type Locale, isLocale, locales } from '@/shared/config/i18n';
@@ -11,6 +12,18 @@ import type { Metadata } from 'next';
 
 import '@/shared/styles/tailwind.css';
 import '@/shared/styles/globals.scss';
+
+const onest = Onest({
+  display: 'swap',
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-onest',
+});
+
+const commissioner = Commissioner({
+  display: 'swap',
+  subsets: ['cyrillic', 'latin'],
+  variable: '--font-commissioner',
+});
 
 export const generateStaticParams = () => {
   return locales.map((locale) => ({ locale }));
@@ -57,7 +70,7 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html className={`${onest.variable} ${commissioner.variable}`} lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
       </body>

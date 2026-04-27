@@ -22,6 +22,13 @@ const config = {
         ignoreAtRules: ['apply', 'layer', 'source', 'tailwind', 'theme', 'utility', 'variant'],
       },
     ],
+    'custom-property-pattern': [
+      '^(?:--)?[a-z][a-z0-9]*(?:-[a-z0-9]+)*(?:--[a-z][a-z0-9]*(?:-[a-z0-9]+)*)?$',
+      {
+        message:
+          'Expected custom property names to be kebab-case, allowing Tailwind token modifiers.',
+      },
+    ],
     'declaration-block-no-redundant-longhand-properties': [
       true,
       {

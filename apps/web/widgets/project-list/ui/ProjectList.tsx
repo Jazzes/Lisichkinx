@@ -21,14 +21,14 @@ export interface ProjectListProps {
 export const ProjectList: FC<ProjectListProps> = ({ locale, messages }) => {
   return (
     <section className="mx-auto w-full max-w-page px-6 py-12">
-      <h2 className="text-2xl font-semibold tracking-tight text-foreground">{messages.title}</h2>
+      <h2 className="font-accent text-accent-m text-foreground">{messages.title}</h2>
 
       <article className="mt-6 rounded-card border border-border-subtle bg-surface p-6 shadow-card">
         <div className="max-w-2xl">
-          <h3 className="text-xl font-semibold text-foreground">
+          <h3 className="font-accent text-accent-s text-foreground">
             {messages.creditCalculator.title}
           </h3>
-          <p className="mt-3 text-base/7 text-muted">{messages.creditCalculator.description}</p>
+          <p className="mt-3 text-l text-muted">{messages.creditCalculator.description}</p>
         </div>
 
         <LinkButton className="mt-6" href={{ pathname: buildLocalizedPath(locale, '/calculator') }}>

@@ -30,7 +30,7 @@ export interface LinkButtonProps
 
 const buttonClassName = (variant: ButtonVariant, className?: string): string => {
   return cn(
-    'inline-flex items-center justify-center rounded-control px-5 py-3 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4',
+    'inline-flex items-center justify-center rounded-control px-5 py-3 text-m font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4',
     variant === 'primary' &&
       'bg-accent text-accent-foreground hover:bg-accent-hover focus-visible:outline-accent',
     variant === 'secondary' &&
