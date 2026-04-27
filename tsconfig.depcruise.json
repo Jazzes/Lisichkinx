@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["apps/web/src/*"]
+    },
+    "target": "ES2017"
+  },
+  "include": ["apps/web/**/*.ts", "apps/web/**/*.tsx"],
+  "exclude": ["node_modules", "apps/web/.next"]
+}

@@ -1,0 +1,16 @@
+---
+description: TypeScript, React и Next.js стиль кода для apps/web.
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Frontend Code Style
+
+- Пиши функциональный TypeScript: без классов, если нет жесткой необходимости.
+- Файл держи меньше 300 строк; функция должна иметь одну ответственность.
+- Используй guard clauses вместо глубокой вложенности.
+- Компоненты — named exports, `FC<Props>`, props деструктурируются в параметрах.
+- Default export допустим только для Next.js route files: `page.tsx`, `layout.tsx`, `error.tsx`, `loading.tsx`.
+- По умолчанию используй Server Components. `'use client'` добавляй только для state, effects или browser API.
+- Публичные props, helpers и domain contracts типизируй явно. Не используй `any` и `as any`.
+- Видимый текст держи в i18n messages, не размазывай строки по UI.

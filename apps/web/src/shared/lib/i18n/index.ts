@@ -1,0 +1,1 @@
+export { buildLocalizedPath } from './buildLocalizedPath';

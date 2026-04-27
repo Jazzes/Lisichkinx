@@ -1,0 +1,15 @@
+---
+description: Соглашения по Tailwind v4, SCSS Modules и Base UI.
+globs: apps/web/**/*.{ts,tsx,css,scss}
+alwaysApply: false
+---
+
+# Styles And UI
+
+- Tailwind v4 используй для layout, spacing, flex/grid, typography и быстрых состояний.
+- `*.module.scss` используй для сложных селекторов, псевдоэлементов, анимаций и длинной styling-логики.
+- Не смешивай Tailwind и SCSS Modules хаотично в одном компоненте: выбери основной инструмент для блока.
+- Импорт CSS Modules называй `s`.
+- Дизайн-токены и глобальные CSS variables держи в `src/shared/styles`.
+- Base UI primitives подключай только через обертки в `src/shared/ui`, не напрямую в feature/view/widget.
+- Для className используй `cn()` из `src/shared/lib/cn.ts`.
