@@ -7,6 +7,9 @@ import { Commissioner, Onest } from 'next/font/google';
 import { notFound } from 'next/navigation';
 
 import { type Locale, isLocale, locales } from '@/shared/config/i18n';
+import { CookieConsent } from '@/widgets/cookie-consent';
+import { SiteFooter } from '@/widgets/site-footer';
+import { SiteHeader } from '@/widgets/site-header';
 
 import type { Metadata } from 'next';
 
@@ -72,7 +75,14 @@ const LocaleLayout = async ({ children, params }: LocaleLayoutProps) => {
   return (
     <html className={`${onest.variable} ${commissioner.variable}`} lang={locale}>
       <body>
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <div className="flex min-h-dvh flex-col">
+            <SiteHeader locale={locale} />
+            <div className="flex min-h-0 flex-auto flex-col">{children}</div>
+            <SiteFooter locale={locale} />
+          </div>
+          <CookieConsent />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 import { notFound } from 'next/navigation';
 
@@ -22,18 +22,7 @@ const LocalizedCalculatorPage = async ({ params }: LocalizedCalculatorPageProps)
 
   setRequestLocale(locale);
 
-  const page = await getTranslations({ locale, namespace: 'calculator.page' });
-
-  return (
-    <CalculatorView
-      messages={{
-        description: page('description'),
-        eyebrow: page('eyebrow'),
-        status: page('status'),
-        title: page('title'),
-      }}
-    />
-  );
+  return <CalculatorView locale={locale} />;
 };
 
 export default LocalizedCalculatorPage;

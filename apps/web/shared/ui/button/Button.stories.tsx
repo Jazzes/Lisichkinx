@@ -30,3 +30,33 @@ export const AsLink: StoryObj<typeof LinkButton> = {
   },
   render: (args) => <LinkButton {...args} />,
 };
+
+export const AsLinkActive: StoryObj<typeof LinkButton> = {
+  args: {
+    active: true,
+    children: 'Текущая страница',
+    href: { pathname: '/' },
+    variant: 'primary',
+  },
+  render: (args) => <LinkButton {...args} />,
+};
+
+export const InlineNavLink: StoryObj<typeof LinkButton> = {
+  args: {
+    active: false,
+    children: 'Раздел',
+    href: { pathname: '/projects' },
+    variant: 'inline',
+  },
+  render: (args) => <LinkButton {...args} />,
+};
+
+export const InlineNavLinkActive: StoryObj<typeof LinkButton> = {
+  args: {
+    active: true,
+    children: 'Текущий раздел',
+    href: { pathname: '/projects' },
+    variant: 'inline',
+  },
+  render: (args) => <LinkButton {...args} />,
+};

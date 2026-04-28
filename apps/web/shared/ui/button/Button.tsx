@@ -6,13 +6,49 @@ import type {
   ReactNode,
 } from 'react';
 
+import { cva } from 'class-variance-authority';
+
 import Link from 'next/link';
 
 import { cn } from '@/shared/lib/cn';
 
-type ButtonVariant = 'primary' | 'secondary';
+type ButtonVariant = 'inline' | 'primary' | 'secondary';
+
+export const buttonVariants = cva('', {
+  defaultVariants: {
+    variant: 'primary',
+  },
+  variants: {
+    variant: {
+      primary: [
+        'inline-flex items-center justify-center rounded-control border px-5 py-3 text-m font-black uppercase tracking-[0.12em]',
+        'transition duration-200 ease-out active:translate-1',
+        'bg-foreground text-background shadow-m-accent',
+        'hover:-translate-y-1 hover:translate-x-1 hover:bg-accent-hover hover:shadow-m-accent-hover',
+        'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent',
+        'disabled:pointer-events-none disabled:translate-0 disabled:opacity-45',
+      ],
+      secondary: [
+        'inline-flex items-center justify-center rounded-control border px-5 py-3 text-m font-black uppercase tracking-[0.12em]',
+        'transition duration-200 ease-out active:translate-1',
+        'border-foreground/35 bg-surface text-foreground shadow-m',
+        'hover:-translate-y-1 hover:translate-x-1 hover:border-accent hover:bg-accent hover:text-accent-foreground hover:shadow-m-hover',
+        'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground',
+        'disabled:pointer-events-none disabled:translate-0 disabled:opacity-45',
+      ],
+      inline: [
+        'inline-flex items-center border border-transparent bg-transparent px-3 py-2 text-s font-black uppercase tracking-[0.16em]',
+        'text-muted transition-colors hover:text-foreground',
+        'underline-offset-4 decoration-solid underline decoration-transparent',
+        'focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent',
+        'data-active:text-foreground data-active:underline data-active:decoration-foreground',
+      ],
+    },
+  },
+});
 
 interface ButtonBaseProps {
+  active?: boolean;
   children: ReactNode;
   className?: string;
   variant?: ButtonVariant;
@@ -28,41 +64,39 @@ export interface LinkButtonProps
   href: ComponentProps<typeof Link>['href'];
 }
 
-const buttonClassName = (variant: ButtonVariant, className?: string): string => {
-  return cn(
-    'inline-flex items-center justify-center rounded-control px-5 py-3 text-m font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4',
-    variant === 'primary' &&
-      'bg-accent text-accent-foreground hover:bg-accent-hover focus-visible:outline-accent',
-    variant === 'secondary' &&
-      'border border-border-subtle bg-surface text-foreground hover:bg-surface-muted focus-visible:outline-border-subtle',
-    className,
-  );
-};
-
 export const Button: FC<ButtonProps> = ({
+  active,
   children,
   className,
   type = 'button',
   variant = 'primary',
   ...props
-}) => {
-  return (
-    <button className={buttonClassName(variant, className)} type={type} {...props}>
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={cn(buttonVariants({ variant }), className)}
+    type={type}
+    {...props}
+    data-active={variant === 'inline' && active === true ? '' : undefined}
+  >
+    {children}
+  </button>
+);
 
 export const LinkButton: FC<LinkButtonProps> = ({
+  active,
   children,
   className,
   href,
   variant = 'primary',
   ...props
-}) => {
-  return (
-    <Link className={buttonClassName(variant, className)} href={href} {...props}>
-      {children}
-    </Link>
-  );
-};
+}) => (
+  <Link
+    className={cn(buttonVariants({ variant }), className)}
+    href={href}
+    {...props}
+    aria-current={active === true ? 'page' : undefined}
+    data-active={variant === 'inline' && active === true ? '' : undefined}
+  >
+    {children}
+  </Link>
+);

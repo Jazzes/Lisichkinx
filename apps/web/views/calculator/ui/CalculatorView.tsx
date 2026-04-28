@@ -1,29 +1,40 @@
-import type { FC } from 'react';
+import { getTranslations } from 'next-intl/server';
 
-export interface CalculatorViewMessages {
-  description: string;
-  eyebrow: string;
-  status: string;
-  title: string;
-}
+import type { Locale } from '@/shared/config/i18n';
+import { Container } from '@/shared/ui';
+
+import { CreditCalculator } from './CreditCalculator';
 
 export interface CalculatorViewProps {
-  messages: CalculatorViewMessages;
+  locale: Locale;
 }
 
-export const CalculatorView: FC<CalculatorViewProps> = ({ messages }) => {
+export const CalculatorView = async ({ locale }: CalculatorViewProps) => {
+  const page = await getTranslations('calculator.page');
+
   return (
-    <main className="mx-auto flex min-h-screen w-full max-w-page flex-col justify-center px-6 py-20">
-      <p className="text-m font-semibold uppercase tracking-[0.3em] text-muted">
-        {messages.eyebrow}
-      </p>
-      <h1 className="mt-5 max-w-3xl font-accent text-accent-xl text-foreground sm:text-accent-2xl">
-        {messages.title}
-      </h1>
-      <p className="mt-6 max-w-2xl text-xl text-muted">{messages.description}</p>
-      <div className="mt-10 rounded-card border border-dashed border-border-subtle bg-surface p-6 text-l text-muted">
-        {messages.status}
-      </div>
+    <main>
+      <Container as="section" className="relative pb-20 pt-12 sm:pt-16">
+        <div className="pointer-events-none absolute right-6 top-24 size-72 bg-accent opacity-30 blur-3xl" />
+        <div className="pointer-events-none absolute left-10 top-80 size-56 bg-foreground opacity-10 blur-3xl" />
+        <div className="relative grid gap-10">
+          <div>
+            <p className="inline-flex border border-accent bg-accent px-3 py-2 text-xs font-black uppercase tracking-[0.28em] text-accent-foreground shadow-s-hover">
+              {page('eyebrow')}
+            </p>
+            <h1 className="mt-8 max-w-5xl font-accent text-[4rem] font-semibold leading-[0.84] tracking-[-0.07em] text-foreground sm:text-[6.5rem]">
+              {page('title')}
+            </h1>
+            <p className="mt-7 max-w-3xl text-xl text-muted">{page('description')}</p>
+          </div>
+
+          <div className="rounded-card border border-foreground/15 bg-surface/70 p-5 shadow-l sm:p-6">
+            <p className="max-w-4xl text-l text-foreground">{page('lead')}</p>
+          </div>
+
+          <CreditCalculator locale={locale} />
+        </div>
+      </Container>
     </main>
   );
 };

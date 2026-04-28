@@ -3,23 +3,53 @@
     "title": "Lisichkinx",
     "description": "A catalog of useful digital projects and tools."
   },
+  "shell": {
+    "header": {
+      "home": "Home",
+      "projects": "Projects",
+      "language": "Language"
+    },
+    "footer": {
+      "tagline": "A personal catalog of useful digital projects and tools.",
+      "sitemap": "Sitemap",
+      "legal": "Legal",
+      "home": "Home",
+      "projects": "Projects",
+      "calculator": "Calculator",
+      "policy": "Policy",
+      "privacy": "Privacy",
+      "copyright": "© 2026 Lisichkinx. Built clean, fast, and without visual noise."
+    },
+    "cookie": {
+      "title": "Cookies",
+      "description": "We use cookies to keep the site stable and remember basic preferences.",
+      "accept": "Accept",
+      "decline": "Not now"
+    }
+  },
   "home": {
     "eyebrow": "Lisichkinx",
     "heroTitle": "Lisichkinx",
     "heroDescription": "A personal catalog of useful digital projects and tools.",
-    "projectsTitle": "Projects",
-    "fontShowcase": {
-      "eyebrow": "Typography",
-      "title": "Fonts worth trying instead of Arial",
-      "description": "Onest stays for body copy, and Commissioner now handles headlines and accents. The previews below use the actual font, size, and weight design tokens.",
-      "bodyTitle": "For body typography",
-      "accentTitle": "For headlines and accents",
-      "bodySample": "Съешь ещё этих мягких французских булок, да выпей чаю.",
-      "accentSample": "Large expressive headline",
-      "reasons": {
-        "onest": "A soft modern sans: it reads naturally in Cyrillic and feels less overused than default system fonts.",
-        "commissioner": "A confident accent family: strong in headlines, cards, and short promotional blocks."
-      }
+    "projectsTitle": "Projects"
+  },
+  "projectsPage": {
+    "eyebrow": "Projects",
+    "title": "Useful digital tools",
+    "description": "The Lisichkinx project list. The first tool is here now, and the catalog will grow over time."
+  },
+  "legal": {
+    "policy": {
+      "eyebrow": "Legal",
+      "title": "Usage policy",
+      "description": "A draft policy page. The document will be updated as the project evolves.",
+      "body": "While the project is in active development, this page marks the intent to describe usage rules, liability limits, and access conditions."
+    },
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Privacy policy",
+      "description": "A draft privacy page. The full text will be added before public user flows launch.",
+      "body": "The site does not currently request sensitive personal data. If forms, accounts, or analytics are added, this page will describe processing purposes and user rights."
     }
   },
   "projects": {

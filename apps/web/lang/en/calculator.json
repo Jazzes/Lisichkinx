@@ -2,7 +2,60 @@
   "page": {
     "eyebrow": "Lisichkinx tool",
     "title": "Credit calculator",
-    "description": "Monthly payments, overpayment and early repayment scenarios will be calculated here.",
-    "status": "The route and architecture base are ready. Business logic will come next."
+    "description": "Calculate the monthly payment, rate, credit amount, or term from three known values.",
+    "lead": "Choose what you want to find, fill in the other fields, and the result updates immediately. This version uses an annuity model: the monthly payment stays the same.",
+    "calculator": {
+      "modeTitle": "Calculate",
+      "reset": "Reset",
+      "note": "This is an estimate and does not include fees, insurance, early repayments, or lender-specific requirements.",
+      "modes": {
+        "payment": "Payment",
+        "rate": "Rate",
+        "principal": "Amount",
+        "term": "Term"
+      },
+      "fields": {
+        "principal": {
+          "label": "Credit amount",
+          "hint": "How much money you need to borrow.",
+          "placeholder": "1000000",
+          "unit": "units"
+        },
+        "payment": {
+          "label": "Monthly payment",
+          "hint": "Payment in the annuity model.",
+          "placeholder": "88849",
+          "unit": "units"
+        },
+        "annualRatePercent": {
+          "label": "Annual rate",
+          "hint": "Nominal annual interest rate.",
+          "placeholder": "12",
+          "unit": "%"
+        },
+        "termYears": {
+          "label": "Term",
+          "hint": "Credit term in years.",
+          "placeholder": "1",
+          "unit": "years"
+        }
+      },
+      "result": {
+        "title": "Result",
+        "empty": "Fill in the fields",
+        "principal": "Amount",
+        "monthlyPayment": "Payment",
+        "rate": "Rate",
+        "term": "Months",
+        "totalPayment": "Total paid",
+        "overpayment": "Overpayment"
+      },
+      "errors": {
+        "invalid-input": "Fill all fields with positive numbers.",
+        "payment-too-low": "The payment is too low: it does not cover the debt or monthly interest.",
+        "rate-out-of-range": "The rate is outside the reasonable range for these values.",
+        "term-out-of-range": "Could not calculate a term for these values."
+      }
+    }
   }
 }

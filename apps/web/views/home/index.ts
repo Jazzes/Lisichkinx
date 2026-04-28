@@ -1,2 +1,2 @@
 export { HomeView } from './ui/HomeView';
-export type { HomeViewMessages, HomeViewProps } from './ui/HomeView';
+export type { HomeViewProps } from './ui/HomeView';

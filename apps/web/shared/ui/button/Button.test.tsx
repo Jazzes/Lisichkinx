@@ -11,7 +11,7 @@ describe('Button', () => {
     const button = screen.getByRole('button', { name: 'Открыть' });
 
     expect(button).toHaveAttribute('type', 'button');
-    expect(button).toHaveClass('bg-accent', 'text-accent-foreground', 'rounded-control');
+    expect(button).toHaveClass('bg-foreground', 'text-background');
   });
 
   it('keeps explicit button type and forwards click handlers', async () => {
@@ -29,7 +29,7 @@ describe('Button', () => {
     await user.click(button);
 
     expect(button).toHaveAttribute('type', 'submit');
-    expect(button).toHaveClass('border-border-subtle', 'bg-surface', 'text-foreground');
+    expect(button).toHaveClass('border-foreground/35', 'bg-surface', 'text-foreground');
     expect(onClick).toHaveBeenCalledOnce();
   });
 });
@@ -45,6 +45,54 @@ describe('LinkButton', () => {
     const link = screen.getByRole('link', { name: 'Калькулятор' });
 
     expect(link).toHaveAttribute('href', '/calculator');
-    expect(link).toHaveClass('rounded-control', 'border-border-subtle', 'bg-surface');
+    expect(link).toHaveClass('rounded-control', 'border-foreground/35', 'bg-surface');
+  });
+
+  it('sets aria-current when active', () => {
+    render(
+      <LinkButton active href={{ pathname: '/' }} variant="primary">
+        Главная
+      </LinkButton>,
+    );
+
+    expect(screen.getByRole('link', { name: 'Главная' })).toHaveAttribute('aria-current', 'page');
+  });
+
+  it('does not set aria-current when inactive', () => {
+    render(
+      <LinkButton active={false} href={{ pathname: '/projects' }} variant="primary">
+        Проекты
+      </LinkButton>,
+    );
+
+    expect(screen.getByRole('link', { name: 'Проекты' })).not.toHaveAttribute('aria-current');
+  });
+
+  it('renders inline variant as plain text when inactive', () => {
+    render(
+      <LinkButton active={false} href={{ pathname: '/about' }} variant="inline">
+        О нас
+      </LinkButton>,
+    );
+
+    const link = screen.getByRole('link', { name: 'О нас' });
+
+    expect(link).toHaveClass('border-transparent', 'text-muted');
+    expect(link).not.toHaveClass('bg-foreground');
+  });
+
+  it('sets data-active on inline link when active (underline via data-active:)', () => {
+    render(
+      <LinkButton active href={{ pathname: '/inline-active' }} variant="inline">
+        Inline active
+      </LinkButton>,
+    );
+
+    const link = screen.getByRole('link', { name: 'Inline active' });
+
+    expect(link).toHaveAttribute('data-active');
+    expect(link.className).toMatch(/data-active:underline/);
+    expect(link).not.toHaveClass('bg-foreground');
+    expect(link).toHaveAttribute('aria-current', 'page');
   });
 });

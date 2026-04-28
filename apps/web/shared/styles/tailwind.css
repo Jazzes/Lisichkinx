@@ -8,15 +8,15 @@
 @source '../../widgets/**/*.{ts,tsx}';
 
 @theme {
-  --color-background: #f7f7f5;
-  --color-foreground: #111;
-  --color-surface: #fff;
-  --color-surface-muted: #efefec;
-  --color-border-subtle: #d6d6cf;
-  --color-muted: #66665f;
-  --color-accent: #111;
-  --color-accent-hover: #2a2a2a;
-  --color-accent-foreground: #fff;
+  --color-background: #07070a;
+  --color-foreground: #fff8ee;
+  --color-surface: #111016;
+  --color-surface-muted: #1d1a25;
+  --color-border-subtle: #3a3346;
+  --color-muted: #b9afc7;
+  --color-accent: #b45cff;
+  --color-accent-hover: #fff;
+  --color-accent-foreground: #07070a;
   --font-sans: var(--font-onest), arial, helvetica, sans-serif;
   --font-accent: var(--font-commissioner), var(--font-sans);
   --text-xs: 0.625rem;
@@ -49,8 +49,21 @@
   --text-accent-2xl--font-weight: 600;
   --text-accent-2xl--letter-spacing: -0.05em;
   --text-accent-2xl--line-height: 1;
-  --radius-card: 1.5rem;
-  --radius-control: 9999px;
-  --shadow-card: 0 1px 2px rgb(17 17 17 / 6%), 0 10px 30px rgb(17 17 17 / 5%);
-  --container-page: 64rem;
+  --radius-card: 0.875rem;
+  --radius-control: 0.375rem;
+  --shadow-s: 4px 4px 0 rgb(255 255 255 / 16%);
+  --shadow-s-hover: 4px 4px 0 rgb(255 255 255 / 92%);
+  --shadow-s-accent: 4px 4px 0 var(--color-accent);
+  --shadow-s-accent-hover: 2px 8px 0 var(--color-accent);
+  --shadow-m: 6px 6px 0 rgb(255 255 255 / 16%);
+  --shadow-m-hover: 2px 12px 0 rgb(255 255 255 / 88%);
+  --shadow-m-accent: 6px 6px 0 var(--color-accent);
+  --shadow-m-accent-hover: 2px 12px 0 var(--color-accent);
+  --shadow-l: 10px 10px 0 rgb(180 92 255 / 95%), 0 28px 80px rgb(0 0 0 / 36%);
+
+  /* Hard layer shifts like shadow-m-hover so lift + shadow stay visually locked */
+  --shadow-l-hover: 6px 16px 0 var(--color-accent), 0 34px 90px rgb(0 0 0 / 44%);
+  --shadow-l-accent: 10px 10px 0 var(--color-accent);
+  --shadow-l-accent-hover: 6px 16px 0 var(--color-accent), 0 34px 90px rgb(0 0 0 / 44%);
+  --container-page: 72rem;
 }
