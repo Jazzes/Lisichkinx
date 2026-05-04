@@ -1,9 +1,7 @@
 {
   "page": {
-    "eyebrow": "Lisichkinx tool",
     "title": "Credit calculator",
     "description": "Calculate the monthly payment, rate, credit amount, or term from three known values.",
-    "lead": "Choose what you want to find, fill in the other fields, and the result updates immediately. This version uses an annuity model: the monthly payment stays the same.",
     "calculator": {
       "modeTitle": "Calculate",
       "reset": "Reset",
@@ -14,30 +12,40 @@
         "principal": "Amount",
         "term": "Term"
       },
+      "termUnit": {
+        "groupLabel": "Term units",
+        "months": "Mo."
+      },
       "fields": {
         "principal": {
           "label": "Credit amount",
-          "hint": "How much money you need to borrow.",
+          "hintInput": "How much money you borrow.",
+          "hintResult": "This is how much you can borrow.",
           "placeholder": "1000000",
           "unit": "units"
         },
         "payment": {
           "label": "Monthly payment",
-          "hint": "Payment in the annuity model.",
+          "hintInput": "How much you will pay each month.",
+          "hintResult": "This is how much you pay each month.",
           "placeholder": "88849",
           "unit": "units"
         },
         "annualRatePercent": {
           "label": "Annual rate",
-          "hint": "Nominal annual interest rate.",
+          "hintInput": "How much interest the bank charges per year.",
+          "hintResult": "This is the rate you get.",
           "placeholder": "12",
           "unit": "%"
         },
-        "termYears": {
+        "termMonths": {
           "label": "Term",
-          "hint": "Credit term in years.",
-          "placeholder": "1",
-          "unit": "years"
+          "hintInput": "How many years or months you borrow for.",
+          "hintResult": "This is how many months you need to pay.",
+          "placeholderYears": "1",
+          "placeholderMonths": "12",
+          "unitYears": "yr",
+          "unitMonths": "mo"
         }
       },
       "result": {
