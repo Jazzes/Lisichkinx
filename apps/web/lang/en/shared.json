@@ -10,7 +10,6 @@
       "language": "Language"
     },
     "footer": {
-      "tagline": "A personal catalog of useful digital projects and tools.",
       "sitemap": "Sitemap",
       "legal": "Legal",
       "home": "Home",
@@ -18,7 +17,7 @@
       "calculator": "Calculator",
       "policy": "Policy",
       "privacy": "Privacy",
-      "copyright": "© 2026 Lisichkinx. Built clean, fast, and without visual noise."
+      "copyright": "© 2026 Lisichkinx."
     },
     "cookie": {
       "title": "Cookies",
@@ -28,9 +27,7 @@
     }
   },
   "home": {
-    "eyebrow": "Lisichkinx",
-    "heroTitle": "Lisichkinx",
-    "heroDescription": "A personal catalog of useful digital projects and tools.",
+    "heroTitle": "Lisichkin X",
     "projectsTitle": "Projects"
   },
   "projectsPage": {

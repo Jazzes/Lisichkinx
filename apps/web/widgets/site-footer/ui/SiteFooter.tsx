@@ -18,8 +18,7 @@ export const SiteFooter = async ({ locale }: SiteFooterProps) => {
       <Container className="grid gap-10 md:grid-cols-[minmax(0,1fr)_16rem_16rem]">
         <div>
           <p className="font-accent text-accent-m tracking-[-0.04em]">Lisichkinx</p>
-          <p className="mt-4 max-w-md text-l text-muted">{footer('tagline')}</p>
-          <p className="mt-8 text-s text-muted">{footer('copyright')}</p>
+          <p className="mt-4 text-s text-muted">{footer('copyright')}</p>
         </div>
 
         <nav aria-labelledby="footer-sitemap-title">
